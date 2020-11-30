@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const licences = require("./licences.json");
 
 
 
@@ -57,10 +58,11 @@ const questions = [
         message: 'What license will the proyect use?',
         choices: [
            new inquirer.Separator(' = licences = '),
-           {name:"1"},
-           {name:"2"},
-           {name:"3"},
-           {name:"4"}
+
+           {name:"apache-2.0"},
+           {name:"gpl-3.0"},
+           {name:"mit"},
+          
         ],
       },
       {
@@ -85,10 +87,20 @@ function writeToFile(fileName, data) {
 function init() {
 
     inquirer.prompt(questions).then((response)=>{
+
+        const key = response.license;
         
+        const license = licences.filter(function(lic){
+            return lic.key == key; 
+        });
+        
+        console.log(license);
+        
+
         //set text
         const logTxt =
-        "# " + response.proyect_name +
+        "# " + response.proyect_name + " "+ 
+        "[![License:"+license[0].name +"]("+license[0].badge+")]("+ license[0].html_url+")" +
         "\n" +
         "\n" + "## Proyect Description" +
         "\n" +
@@ -112,11 +124,16 @@ function init() {
         "\n" +
         "\n" + "## Proyect Licence" +
         "\n" +
-        "\n" + response.license +
+        ////////////////////////////////////////////
+        "\n" + license[0].name +
+        "\n" + license[0].conditions +
+        "\n" + license[0].permissions +
+        "\n" + license[0].html_url +
+        ///////////////////////////////////////////
         "\n" +
         "\n" + "## User info" +
         "\n" +
-        "\n" + "GitHub User: " +response.gitUser +
+        "\n" + '[GitHub User: '+response.gitUser+'](https://github.com/'+response.gitUser+')' +
         "\n" + "Email: "+ response.mainEmail
 
         ;
