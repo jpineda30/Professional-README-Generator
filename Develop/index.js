@@ -8,34 +8,70 @@ const questions = [
         type: 'input',
         name: 'proyect_name',
         message: "What's the name of the proyect?",
+        validate: function (answer) {
+            if (answer.length < 3) {
+                return console.log("\n The name is too short, add a longer name");
+            }
+            return true;
+        }
     },
     {
         type: 'input',
         name: 'proyect_description',
         message: "What is the proyect about?",
+        validate: function (answer) {
+            if (answer.length < 40) {
+                return console.log("\n Desciption is too short, add a better description");
+            }
+            return true;
+        }
     },
     {
         type: 'input',
         name: 'proyect_instalation',
         message: "What are the installation instructions?",
+        validate: function (answer) {
+            if (answer.length < 40) {
+                return console.log("\n Text is too short, add a better description for this section");
+            }
+            return true;
+        }
     },
     {
         type: 'input',
         name: 'proyect_usage',
         message: "What are the uses of the proyect?",
+        validate: function (answer) {
+            if (answer.length < 40) {
+                return console.log("\n Text is too short, add a better description for this section");
+            }
+            return true;
+        }
     },
     {
         type: 'input',
         name: 'proyect_guidelines',
         message: "What are the contribution guidelines?",
+        validate: function (answer) {
+            if (answer.length < 40) {
+                return console.log("\n Text is too short, add a better description for this section");
+            }
+            return true;
+        }
     },
     {
         type: 'input',
         name: 'proyect_usage',
         message: "What are the test instructions?",
+        validate: function (answer) {
+            if (answer.length < 40) {
+                return console.log("\n Text is too short, add a better description for this section");
+            }
+            return true;
+        }
     },
     {
-        type: 'checkbox',
+        type: 'rawlist',
         name: 'license',
         message: 'What license will the proyect use?',
         choices: [
@@ -61,9 +97,7 @@ const questions = [
 ];
 
 //description, installation instructions, usage
-// function to write README file
-function writeToFile(fileName, data) {
-}
+
 
 // function to initialize program
 function init() {
@@ -112,15 +146,16 @@ function init() {
         "\n" + "## Proyect Licence" +
         "\n" +
         ////////////////////////////////////////////
-        "\n" + license[0].name +
-        "\n" + license[0].conditions +
-        "\n" + license[0].permissions +
+        "\n" + license[0].name + "\n" +
+        "\n" + license[0].conditions + "\n" +
+        "\n" + license[0].permissions + "\n" +
         "\n" + license[0].html_url +
         ///////////////////////////////////////////
         "\n" +
         "\n" + "## User info" +
         "\n" +
-        "\n" + '[GitHub User: '+response.gitUser+'](https://github.com/'+response.gitUser+')' +
+        "\n" + '[GitHub User: '+response.gitUser+'](https://github.com/'+response.gitUser+')' + "\n" +
+        "\n" + "in case of any doubt or clarification, contact me at:  " + 
         "\n" + "Email: "+ response.mainEmail
 
         ;
