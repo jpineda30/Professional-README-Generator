@@ -2,24 +2,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const licences = require("./licences.json");
 
-
-
-//object
-var fileContent = {
-    
-            
-    proyect_name:"",
-    proyect_description:"",
-    proyect_instalation:"",
-    proyect_usage:"",
-    proyect_guidelines:"",
-    proyect_usage:"",
-    license:"",
-    gitUser:"",
-    mainEmail:""
-    
-    
-}
 // array of questions for user
 const questions = [
     {
@@ -102,6 +84,15 @@ function init() {
         "# " + response.proyect_name + " "+ 
         "[![License:"+license[0].name +"]("+license[0].badge+")]("+ license[0].html_url+")" +
         "\n" +
+        "\n" + "## Menu" +
+        "\n" +
+        "\n" + "[1-Proyect Description](##Proyect-Description)" + "\n" +
+        "\n" + "[2-Proyect Instalation](##Proyect-Instalation)" + "\n" +
+        "\n" + "[3-Proyect Usage](##Proyect-Usage)" + "\n" +
+        "\n" + "[4-Proyect Guidelines](##Proyect-Guidelines)" + "\n" +
+        "\n" + "[5-Proyect License](##Proyect-License)" + "\n" +
+        "\n" + "[6-User info](##User-info)" + "\n" +
+        "\n" +
         "\n" + "## Proyect Description" +
         "\n" +
         "\n" + response.proyect_description +
@@ -117,10 +108,6 @@ function init() {
         "\n" + "## Proyect Guidelines" +
         "\n" +
         "\n" + response.proyect_guidelines + 
-        "\n" +
-        "\n" + "## Proyect Usage" +
-        "\n" +
-        "\n" + response.proyect_licence +
         "\n" +
         "\n" + "## Proyect Licence" +
         "\n" +
