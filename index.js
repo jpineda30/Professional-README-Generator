@@ -61,7 +61,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'proyect_usage',
+        name: 'proyect_test',
         message: "What are the test instructions?",
         validate: function (answer) {
             if (answer.length < 40) {
@@ -110,7 +110,7 @@ function init() {
             return lic.key == key; 
         });
         
-        console.log(license);
+        
         
 
         //set text
@@ -122,10 +122,11 @@ function init() {
         "\n" +
         "\n" + "[1-Proyect Description](##Proyect-Description)" + "\n" +
         "\n" + "[2-Proyect Instalation](##Proyect-Instalation)" + "\n" +
-        "\n" + "[3-Proyect Usage](##Proyect-Usage)" + "\n" +
-        "\n" + "[4-Proyect Guidelines](##Proyect-Guidelines)" + "\n" +
-        "\n" + "[5-Proyect License](##Proyect-License)" + "\n" +
-        "\n" + "[6-User info](##User-info)" + "\n" +
+        "\n" + "[3-Proyect Usage](##Proyect-Testing)" + "\n" +
+        "\n" + "[4-Proyect Usage](##Proyect-Usage)" + "\n" +
+        "\n" + "[5-Proyect Guidelines](##Proyect-Guidelines)" + "\n" +
+        "\n" + "[6-Proyect License](##Proyect-License)" + "\n" +
+        "\n" + "[7-User info](##User-info)" + "\n" +
         "\n" +
         "\n" + "## Proyect Description" +
         "\n" +
@@ -139,6 +140,10 @@ function init() {
         "\n" +
         "\n" + response.proyect_usage +
         "\n" +
+        "\n" + "## Proyect Testing" +
+        "\n" +
+        "\n" + response.proyect_test + 
+        "\n" +
         "\n" + "## Proyect Guidelines" +
         "\n" +
         "\n" + response.proyect_guidelines + 
@@ -149,7 +154,7 @@ function init() {
         "\n" + license[0].name + "\n" +
         "\n" + license[0].conditions + "\n" +
         "\n" + license[0].permissions + "\n" +
-        "\n" + license[0].html_url +
+        "\n" + license[0].source_url +
         ///////////////////////////////////////////
         "\n" +
         "\n" + "## User info" +
