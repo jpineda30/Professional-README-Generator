@@ -139,6 +139,7 @@ function init() {
         "\n" + "## Proyect Usage" +
         "\n" +
         "\n" + response.proyect_usage +
+        "\n" + "See the use of the program in this video: https://youtu.be/BMGdCUh_Ouo " +
         "\n" +
         "\n" + "## Proyect Testing" +
         "\n" +
